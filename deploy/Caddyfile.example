@@ -1,0 +1,8 @@
+# Replace with a domain whose DNS A record points to the Droplet IPv4 address.
+CHANGE_ME_DOMAIN {
+	encode zstd gzip
+	 basic_auth {
+		CHANGE_ME_USERNAME CHANGE_ME_CADDY_PASSWORD_HASH
+	}
+	reverse_proxy 127.0.0.1:8765
+}

@@ -1,0 +1,26 @@
+[Unit]
+Description=Delta Option Desk local web bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=deltaapp
+Group=deltaapp
+WorkingDirectory=/opt/delta-option-desk
+ExecStart=/usr/bin/python3 /opt/delta-option-desk/server.py
+Restart=on-failure
+RestartSec=3
+Environment=PYTHONUNBUFFERED=1
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+
+[Install]
+WantedBy=multi-user.target
